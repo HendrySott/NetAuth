@@ -1,0 +1,8 @@
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/Authentication
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/appsettings.Development.json
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/appsettings.json
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/Authentication.dll
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/Authentication.deps.json
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/Authentication.runtimeconfig.json
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/Authentication.pdb
+/Users/systemcreator/project/NetSuite/WorkPlace/GlobalAuthentication/bin/Publish/MySqlConnector.dll

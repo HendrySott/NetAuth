@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Authentication.csproj": {}
+  },
+  "projects": {
+    "/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Authentication.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Authentication.csproj",
+        "projectName": "Authentication",
+        "projectPath": "/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Authentication.csproj",
+        "packagesPath": "/home/hendry/.nuget/packages/",
+        "outputPath": "/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/hendry/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.3.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.126/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

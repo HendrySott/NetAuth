@@ -1,0 +1,64 @@
+@page
+@model NetEmployee.Pages.Account.NewPswd
+
+<style>
+    .frame{
+    font-family: 'Inter', sans-serif;
+    }
+    .abs-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card{
+        min-width: 35%;
+    }
+    
+    
+</style>
+
+<div class="container">
+    <div class="abs-center">
+        <div class="card">
+            <div class="card-header" style="display: flex;  align-items: center; justify-content: center;color: white">
+                <h4 style="color: white">Cambiar contraseña</h4>
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <form method="post" id="basic-form">
+                        <div class="mb-3">
+                            <label for="email_address" class="col-md-4 col-form-label text-md-right" style="width: auto;">Institutional email</label>
+                            <input type="email"  class="form-control" asp-for="newdata.EMAIL" required autofocus>
+                            
+                            </div>
+                        <div class="mb-3">
+                            <label for="email_address" class="col-md-4 col-form-label text-md-right" style="width: auto;">New password</label>
+                            <input type="password"  class="form-control" asp-for="newdata.PASSWORD" required autofocus>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-right" style="width: auto;">Confirm</label>
+                            <input type="password"  class="form-control" asp-for="confirm" required>
+                            
+                        </div>
+                        
+                        <div asp-validation-summary="ModelOnly" class="text-danger">
+                        </div>
+                            
+                        <input type="submit" value="Submit " class="btn btn-success" style="float: right"/>
+                    </form>
+            
+            
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+}

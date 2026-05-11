@@ -1,0 +1,131 @@
+@page
+@using NetEmployee.Data
+@using System.Security.Claims
+@model Authentication.Pages.AssetsModel
+
+@inject DataServices _data
+
+@{
+  ViewData["Title"] = "Assets";
+  var lname = Request.Cookies["flastname"];
+  var name = Request.Cookies["fname"];
+  var position = Request.Cookies["positionName"];
+          var Institution = User.FindFirst(ClaimTypes.Hash)?.Value;
+        var code =  @User.FindFirst(ClaimTypes.Actor)?.Value;
+
+
+
+  var institution = User.FindFirst(ClaimTypes.Hash)?.Value;
+    var codex =  @User.FindFirst(ClaimTypes.Actor)?.Value;
+    string url = "";
+    string param = "";
+    try{
+
+      foreach(var it in _data.GetShaValue(institution,int.Parse(code))){
+         param = $"/account/login?token="+it.sha+"&id=true";
+      }
+    }catch(Exception e){
+
+    }
+}
+
+
+
+<div class="container">
+
+  
+
+
+
+        <main role="main" class="pb-3">
+
+
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Global assets</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        @* <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Link
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+        </li> *@
+      </ul>
+      <!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    @name @lname | @position
+  </button>
+  <ul class="dropdown-menu">
+    @{
+      string urlp = "idem.syscrafter.com"+param;
+      string urls = "settings.syscrafter.com"+param;
+      
+    }
+    <li><a class="dropdown-item" href="https://@urlp">User profile</a></li>
+    <li><a class="dropdown-item" href="https://@urls">Settings</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" asp-area="" asp-page="/Logout">Log out</a></li>
+  </ul>
+</div>
+
+    </div>
+  </div>
+</nav>
+
+<br />
+
+
+
+          @{
+            <ol class="list-group list-group-numbered">
+              
+              
+            
+            
+            
+   
+            @try{
+
+              
+                foreach(var item in _data.GetLinks()){
+                    url = item.ADDRESS+".syscrafter.com"+param;
+                    
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold"><a href="https://@url">@item.ADDRESS</a> </div>
+                        @item.DESCRIPTION
+                      </div>
+                      <span class="badge bg-primary rounded-pill"><i class="fas fa-external-link-alt"></i></span>
+                    </li>
+                    
+                    
+                }
+            }catch(Exception e){
+@e
+            }
+            </ol>
+
+          }
+          
+        </main>
+</div>

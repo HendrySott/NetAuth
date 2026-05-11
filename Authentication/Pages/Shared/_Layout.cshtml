@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Authentication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Authentication.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css">
+</head>
+<body>
+ 
+    
+            @RenderBody()
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            <p style="margin-bottom: -1rem;"> &copy; 2024 Authentication Center 
+            </p>
+            <p style="margin-bottom: 0rem;">Developed By <a href="https://SysCrafter.com">SysCrafter Studio</a></p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

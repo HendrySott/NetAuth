@@ -1,0 +1,89 @@
+@page
+@using NetEmployee.Data
+@using System.Security.Claims
+@inject DataServices _data
+@model InsEmail
+
+@{
+    ///cookies var definition
+    /// datatime
+    var currentTime = DateTime.Now;
+    //user unique code
+    var institution = User.FindFirst(ClaimTypes.Hash)?.Value;
+    var code = User.FindFirst(ClaimTypes.Actor)?.Value;
+}
+
+<!-- 
+*************************************************
+*SysCrafter.com Register system, Hendry Soto E..*
+*06-15-2023                                     *
+*************************************************
+-->
+<br />
+<br />
+
+<div class="container">
+    <div class="abs-center">
+        <div class="card">
+            <div class="card-header" >
+                <h4 >Last step</h4>
+            </div>
+            <div class="card-body">
+                <div >
+                    <form method="post" id="basic-form">
+                        @{
+                                try{
+                                    foreach(var item in _data.GetInstitutionNameUsingInstitutionCode(institution)){
+                                        <div class="mb-3">
+                                            <label for="emailINS" class="form-label">Default intitutional email template</label>
+                                            
+                                            <input type="text" class="form-control" id="emailINS" asp-for="im.INSTITUTIONALEMAIL" value="@item.INSTITUTIONALEMAIL" aria-describedby="data">
+                                            <div id="data" class="form-text">This will be the institutional email model for all users on the system</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="emailINS" class="form-label">Default password</label>
+                                            <input type="text" class="form-control"  id="passINS" asp-for="im.DEF_PASS" aria-describedby="data" value="@item.DEF_PASS" minlength="5" maxlength="10">
+                                            <div id="data" class="form-text">Default password for all account</div>
+                                        </div>
+
+                                        <input type="submit" value="Save"  class="btn btn-primary" />
+                                    }
+                                }catch(Exception e){}
+                            }
+
+                        
+                        
+                        
+                        
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@section scripts{
+
+    <script>
+    //todo add just an j@j
+    $('#INS').on('input',function(e){
+     var ins = $(this).val();
+     
+     var str = ins+".com";
+     $('#emailINS').val(str).toLowerCase();
+     
+     var str1 = ins+"123";
+     $('#passINS').val(str1).toLowerCase();
+     
+    });
+    </script>
+}

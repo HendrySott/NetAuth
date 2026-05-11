@@ -1,0 +1,82 @@
+@page
+@model Authentication.Pages.SigninModel
+<!-- 
+*************************************************
+*SysCrafter.com Register system, Hendry Soto E..*
+*06-15-2023                                     *
+*************************************************
+-->
+
+
+<body class="hold-transition register-page">
+<div class="register-box">
+  @* <div class="register-logo">
+    <a href="../../index2.html"><b>Admin</b>LTE</a>
+  </div> *@
+
+  <div class="card">
+    <div class="card-body register-card-body">
+       
+        <h3><p class="login-box-msg">New Account</p></h3>  
+       
+
+
+      <form method="post">
+        <div class="input-group mb-3">
+          <input type="text" asp-for="person.F_NAME" required class="form-control" required minlength="2" placeholder="Name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" asp-for="person.F_LASTN" required class="form-control" required minlength="2" placeholder="Lastname">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" asp-for="auth.EMAIL" class="form-control" required minlength="3" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" asp-for="auth.PASSWORD" class="form-control" required minlength="7" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" asp-for="psw" class="form-control" required minlength="7" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Signin</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+
+</body>

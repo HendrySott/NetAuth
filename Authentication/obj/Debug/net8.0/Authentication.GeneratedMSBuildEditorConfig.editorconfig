@@ -1,0 +1,79 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Authentication
+build_property.RootNamespace = Authentication
+build_property.ProjectDir = /home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication
+build_property._RazorSourceGeneratorDebug = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjZXNzRGVuaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Assets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXNzZXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/InsConfig.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5zQ29uZmlnLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/InsEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5zRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/NewPswd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTmV3UHN3ZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVzZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Signin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2lnbmluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/hendry/Softw/asp/sofware updated/GlobalAuthentication/Authentication/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-xspanorzmh

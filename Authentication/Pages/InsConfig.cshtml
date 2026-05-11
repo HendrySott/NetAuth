@@ -1,0 +1,253 @@
+@page
+@using NetEmployee.Data
+@using System.Security.Claims
+@inject DataServices _data
+@model Authentication.Pages.InsConfig
+
+@{
+    ///cookies var definition
+    /// datatime
+    var currentTime = DateTime.Now;
+    //user unique code
+    var institution = User.FindFirst(ClaimTypes.Hash)?.Value;
+    var code = User.FindFirst(ClaimTypes.Actor)?.Value;
+}
+
+
+
+<!-- 
+*************************************************
+*SysCrafter.com Register system, Hendry Soto E..*
+*06-15-2023                                     *
+*************************************************
+-->
+<br />
+<br />
+
+
+
+
+<div class="container">
+    <div class="abs-center">
+        <div class="card">
+            <div class="card-header" >
+                <h4 >Set up Institution</h4>
+            </div>
+            <div class="card-body">
+                <div >
+                    <form method="post" id="basic-form">
+                
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Address</label>
+                            
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Number</th>
+                                    <th scope="col">Street</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int count = 0;
+                                        try{
+                                            foreach(var item in _data.getInstitutionalAddress(institution)){
+                                                count =+1;
+                                                <tr>
+                                                    <th scope="row">@count</th>
+                                                    <td>@item.BUILDING_NAME</td>
+                                                    <td>@item.LOCATION_TYPE</td>
+                                                    <td>@item.NUMBER</td>
+                                                    <td>@item.STREET</td>
+                                                    <td>@item.CITY</td>
+                                                    <td>@item.PHONE</td>
+                                                    </tr>
+                                            }
+
+                                        }catch(Exception e){
+                                            
+                                        }
+                                    }
+                                    
+                                   
+                                </tbody>
+                                </table>
+
+
+                            <div id="data" class="form-text">
+                                <a class="btn btn-primary" data-bs-toggle="modal" href="#Address" role="button" >Add Location</a>
+                                </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="INS" class="form-label" >Institution Name</label>
+                            <input type="text" class="form-control" asp-for="im.NAME" id="INS" aria-describedby="data" required minlength="1" maxlength="50" autofocus>
+                            <div id="data" class="form-text">Comertial name or brand</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <select class="form-select" aria-label="Default select example" asp-for="im.TAX_NAME">
+                                <option value="Tax_ID">Canada Tax ID or Business Number.</option>
+                                <option value="NIT">Bolivia, Colombia, Panama, El Salvador and Guatemala NIT (Número de Identificación Tributaria).</option>
+                                <option value="CUIT">Argentina CUIT (Código Único de Identificación Tributaria) or CUIT (Código Único de Identificación Tributaria).</option>
+                                <option value="CPF">Brazil CPF (Cadastro de Persona Fisica), or CNPJ (Persona Jurídica).</option>
+                                <option value="RIF">Venezuela RIF (Tax Information Registry).</option>
+                                <option value="RUT">Chile RUT (Sole Taxpayer Identification Number).</option>
+                                <option value="NITE">Costa Rica NITE (Special Taxpayer Identification Number).</option>
+                                <option value="RNC" selected>Dominican Republic RNC (National Taxpayer Registry).</option>
+                                <option value="RUT">Uruguay RUT (Registro Único Tributario).</option>
+                                <option value="TIN">United States TIN (Taxpayer Identification Number).</option>
+                                <option value="RUC">Paraguay, Peru, Nicaragua and Ecuador RUC (Single Taxpayer Registry).</option>
+                                <option value="RTU">Guatemala RTU (Registro Tributario Unificado - Unified Tax Registry).</option>
+                                <option value="NIT">El Salvador NIT (Taxpayer Identification Number).</option>
+                                <option value="RTN">Honduras RTN (Registro Tributario Nacional).</option>
+                                <option value="NIF">European Union NIF (Tax Identification Code for companies).</option>
+                                <option value="CIF">Spain CIF (Tax Identification Code).</option>
+
+                                </select>
+                        </div>
+                               
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Tax ID</label>
+                            <input type="text" class="form-control"  id="exampleInputEmail1" asp-for="im.Tax_ID" aria-describedby="data" >
+                            @* <div id="data" class="form-text"></div> *@
+                        </div>
+
+                        
+
+
+
+                        <input type="hidden"   asp-for="communication.Command" value="saveInstitution"/>
+                        
+                        
+                        @{
+                                try
+                                {
+                                    var addr = _data.getInstitutionalAddress(institution);
+                                    if(addr.Count()  > 0 )
+                                    {
+                                        <input type="submit"  class="btn btn-primary" value="Save"  style="float: right"/>
+                                    }
+                                    else
+                                    {
+                                        <input type="submit"  disabled class="btn btn-primary" value="Save" style="float: right"/>
+                                    }
+                                    
+                                }
+                                catch (Exception e)
+                                {
+                                    
+                                }
+                        }
+                        
+                    
+                        
+                    </form>
+            
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="Address" aria-hidden="true" aria-labelledby="AddressLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Address</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post">
+                <div class="modal-body">
+
+
+                
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Location type</label>
+                        <select class="form-select" asp-for="address.LOCATION_TYPE" aria-label="Default select example">
+                            <option value="100" selected>Main Location</option>
+                            <option value="1">Branch</option>
+                            </select>
+                        @* <div id="emailHelp" class="form-text">Especifique el tipo de locación</div> *@
+                        </div> 
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" asp-for="address.BUILDING_NAME" class="form-control" id="stock" aria-describedby="emailHelp">
+                        @* <div id="emailHelp" class="form-text">Especifique el nombre del edificio donde se encuentra el negocio</div> *@
+                        </div> 
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Number</label>
+                        <input type="number" asp-for="address.NUMBER" class="form-control" id="stock" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Especifique el número del local</div>
+                        </div> 
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Street</label>
+                        <input type="text" asp-for="address.STREET" class="form-control" id="stock" aria-describedby="emailHelp">
+                        @* <div id="emailHelp" class="form-text">Especifique el numero o nombre de la calle</div> *@
+                    </div> 
+                    
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Province</label>
+                        <input type="text" asp-for="address.PROVINCE" class="form-control" id="stock" aria-describedby="emailHelp">
+                        @* <div id="emailHelp" class="form-text">Especifique la provincia</div> *@
+                        </div> 
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Country</label>
+                        <input type="text" asp-for="address.CONTRY" class="form-control" id="stock" aria-describedby="emailHelp">
+                        @* <div id="emailHelp" class="form-text">Especifique especifique la ciudad</div> *@
+                        </div> 
+                 <div class="mb-3">
+                     <label for="exampleInputEmail1" class="form-label">City</label>
+                     <input type="text" asp-for="address.CITY"  class="form-control" id="stock" aria-describedby="emailHelp">
+                     @* <div id="emailHelp" class="form-text">Especifique en que país</div> *@
+                     </div> 
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Phone</label>
+                        <input type="text" asp-for="address.PHONE" class="form-control" id="stock" aria-describedby="emailHelp">
+                        @* <div id="emailHelp" class="form-text">Especifique el número de teléfono para esta oficina</div> *@
+                        </div>                    
+              
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" value="addAddress" asp-for="communication.Command"/>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+    //todo add just an j@j
+    $('#INS').on('input',function(e){
+     var ins = $(this).val();
+     
+     var str = ins+".com";
+     $('#emailINS').val(str).toLowerCase();
+     
+     var str1 = ins+"123";
+     $('#passINS').val(str1).toLowerCase();
+     
+    });
+    </script>
+}
