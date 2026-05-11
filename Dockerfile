@@ -1,10 +1,15 @@
-FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+COPY . .
+
+RUN dotnet publish -c Release -o /app/publish
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-ENV ASPNETCORE_URLS=http://+:8080
-ENV ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
+COPY --from=build /app/publish .
 
-EXPOSE 8080
-
-COPY Authentication/bin/Debug/net8.0/ .
-ENTRYPOINT ["dotnet", "WebApplication1.dll"]
+ENTRYPOINT ["dotnet", "MyApi.dll"]
